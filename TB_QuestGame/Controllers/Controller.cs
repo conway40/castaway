@@ -654,6 +654,10 @@ namespace TB_QuestGame
             return survivorActionChoice;
         }
 
+        private void AskToScavenge()
+        {
+
+        }
         private void TalkToAction()
         {
             //
