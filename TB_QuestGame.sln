@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TB_QuestGame", "TB_QuestGame\TB_QuestGame.csproj", "{F03D0B1D-A1E7-41FB-8A70-2E60981B15F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheAionProject.S4_Starter", "..\..\TheAionProject.S4\Demo_TheAionProject.S4_Starter\TheAionProject.S4_Starter\TheAionProject.S4_Starter.csproj", "{987992F8-3E04-4A2A-BDD6-F3F7B612CEE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F03D0B1D-A1E7-41FB-8A70-2E60981B15F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03D0B1D-A1E7-41FB-8A70-2E60981B15F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03D0B1D-A1E7-41FB-8A70-2E60981B15F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03D0B1D-A1E7-41FB-8A70-2E60981B15F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{987992F8-3E04-4A2A-BDD6-F3F7B612CEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{987992F8-3E04-4A2A-BDD6-F3F7B612CEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{987992F8-3E04-4A2A-BDD6-F3F7B612CEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{987992F8-3E04-4A2A-BDD6-F3F7B612CEE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F67F2E4E-5F09-4489-AE33-03BD8174064D}
+	EndGlobalSection
+EndGlobal
