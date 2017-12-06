@@ -656,8 +656,60 @@ namespace TB_QuestGame
 
         private void AskToScavenge()
         {
+            //
+            // display a list of NPCs in space-time location and get a player choice
+            //
+            int npcGetToScavenge = _gameConsoleView.DisplayGetNpcToAskToScavenge();
+
+            //
+            // get NPC to scavenge for an object
+            // display object added to inventory
+            //
+            if (npcGetToScavenge != 0)
+            {
+                //
+                // get the NPC from the universe
+                //
+                Animal theNpc = _gameUniverse.GetNpcById(npcGetToScavenge) as Animal;
+
+                //
+                // get found object and put it in inventory
+                //
+                List<SurvivorObject> objectsToScavengeFor = _gameUniverse.GetSurvivorObjectsByIslandLocationId(8);
+                SurvivorObject foundObject = ScavengeForObjects(objectsToScavengeFor);
+
+                _gameConsoleView.DisplayConfirmSurvivorObjectAddedToInventory(foundObject);
+
+                //
+                // note: survivor object is added to list and the island location is set to 0
+                //
+                _gameSurvivor.Inventory.Add(foundObject);
+                foundObject.IslandLocationId = 0;
+
+                //
+                // update experience points, health, and lives
+                //
+                _gameSurvivor.ExperiencePoints += foundObject.ExperiencePoints;
+                _gameSurvivor.Health += foundObject.HealthPoints;
+                _gameSurvivor.Lives += foundObject.Lives;
+            }
 
         }
+
+        public SurvivorObject ScavengeForObjects(List<SurvivorObject> scavengerObjects)
+        {
+            scavengerObjects = new List<SurvivorObject>();
+            SurvivorObject foundObject = new SurvivorObject();
+            Random rnd = new Random();
+            if (scavengerObjects.Count > 0)
+            {
+                int scavengerObjectId = rnd.Next(1, scavengerObjects.Count);
+                foundObject = scavengerObjects[scavengerObjectId];
+            }
+
+            return foundObject;
+        }
+
         private void TalkToAction()
         {
             //

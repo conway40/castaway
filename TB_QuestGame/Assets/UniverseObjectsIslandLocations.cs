@@ -113,9 +113,16 @@ namespace TB_QuestGame
                     "Pond",
                 Accessible = false,
                 ExperiencePoints = 10
-            }
+            },
             #endregion
 
+            new IslandLocation
+            {
+                CommonName = "Scavenger Objects Location",
+                IslandLocationID = 8,
+                Description = "Where the scavengers get their objects.",
+                Accessible = false
+            }
         };
     }
 }

@@ -1063,6 +1063,57 @@ namespace TB_QuestGame
             Console.ReadKey();
         }
 
+        public int DisplayGetNpcToAskToScavenge()
+        {
+            int npcId = 0;
+            bool validNpcId = false;
+
+            //
+            // get a list of NPCs in the current space-time location
+            //
+            List<Npc> npcsInSpaceTimeLocation = _gameUniverse.GetNpcsBySpaceTimeLocationId(_gameSurvivor.IslandLocationID);
+
+            if (npcsInSpaceTimeLocation.Count > 0)
+            {
+                DisplayGamePlayScreen("Chose Character to Ask to Scavenge", Text.NpcsChooseList(npcsInSpaceTimeLocation), ActionMenu.NpcMenu, "");
+
+                while (!validNpcId)
+                {
+                    //
+                    // get an integer from the player
+                    //
+                    GetInteger($"Enter the Id number of the character you wish to ask: ", 0, 0, out npcId);
+
+                    //
+                    // validate integer as a valid NPC id and in current location
+                    //
+                    if (_gameUniverse.IsValidNpcByLocationId(npcId, _gameSurvivor.IslandLocationID))
+                    {
+                        Npc npc = _gameUniverse.GetNpcById(npcId);
+                        if (npc is IScavenge)
+                        {
+                            validNpcId = true;
+                        }
+                        else
+                        {
+                            ClearInputBox();
+                            DisplayInputErrorMessage("It appears this character will not scavenge for you. Please try again.");
+                        }
+                    }
+                    else
+                    {
+                        ClearInputBox();
+                        DisplayInputErrorMessage("It appears you entered and invalid NPC id. Please try again.");
+                    }
+                }
+            }
+            else
+            {
+                DisplayGamePlayScreen("Choose Character to Speak With", "It appears there are no NPCs here.", ActionMenu.NpcMenu, "");
+            }
+
+            return npcId;
+        }
         #endregion
 
         #endregion
